@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+body {
+  font-family: system-ui;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 800px) 1fr;
+}
+body > * {
+  grid-column: 2;
+  outline: 2px solid #000;
+}
+
+header {
+  --gutter: 1rem;
+
+  display: flex;
+  gap: var(--gutter);
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+header ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: var(--gutter);
+}
+header button {
+  height: 50px;
+  font-size: 1.4rem;
+}
+
+.homes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.homes > div {
+  display: grid;
+}
+.homes > div > * {
+  grid-area: 1/1;
+}
+.homes > div:first-child {
+  grid-row: span 2;
+}
+.homes img {
+  align-self: stretch;
+  object-fit: cover;
+}
+.homes a {
+  background: white;
+  color: black;
+  padding: 1rem;
+  place-self: end start; /*WTF*/
+  /*equal to
+  align-self: end;
+  justify-self: start;
+  */
+  margin: 1rem;
+}
+.homes h3 {
+  color: white;
+}
+.homes img {
+  z-index: -1;
+}
+
+.fav-place {
+  grid-column: 2/-1;
+}
+.fav-place ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+}
+.fav-place li {
+  flex-basis: 300px;
+  /*flex-grow: 0;*/
+  flex-shrink: 0; /*false*/
+}
+.fav-place a {
+  color: black;
+  text-decoration: none;
+}
+
+.fav-place article {
+  display: grid;
+}
+.fav-place img {
+  order: -1;
+}
